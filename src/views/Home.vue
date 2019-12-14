@@ -1,18 +1,39 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <h1>Job Page</h1>
+    <div class="columns">
+      <section>
+        <job-overview />
+      </section>
+      <section>
+        <job-detail />
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import JobOverview from "../components/JobOverview";
+import JobDetail from "../components/JobDetail";
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    JobOverview: JobOverview,
+    JobDetail: JobDetail
   }
 };
 </script>
+
+<style scoped lang="scss">
+.columns {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  > * {
+    width: calc(50% - 20px);
+  }
+}
+</style>
