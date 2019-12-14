@@ -4,7 +4,7 @@
     <main class="content-container columns">
       <section>
         <h2>Job Overview</h2>
-        <ul>
+        <ul class="job-list">
           <job-item
             v-for="job in jobs"
             :key="job.id"
@@ -49,14 +49,16 @@ export default {
 .content-container {
   position: relative;
   &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    display: block;
-    height: 100%;
-    width: 1px;
-    background: #eeeeee;
+    @media screen and (min-width: 1024px) {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      display: block;
+      height: 100%;
+      width: 1px;
+      background: #eeeeee;
+    }
   }
 }
 
@@ -64,10 +66,15 @@ export default {
   @media screen and (min-width: 1024px) {
     display: flex;
     justify-content: space-between;
-  }
 
-  > * {
-    width: calc(50% - 20px);
+    > * {
+      width: calc(50% - 20px);
+    }
   }
+}
+
+.job-list {
+  padding: 0;
+  margin: 0;
 }
 </style>

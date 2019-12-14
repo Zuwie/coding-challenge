@@ -1,5 +1,5 @@
 <template>
-  <div class="jobitem">
+  <li class="jobitem">
     <h3 class="jobitem__title">
       {{ job.title }}
     </h3>
@@ -11,7 +11,7 @@
     <button class="button" @click="setActiveJob(job.id)">
       More information about this job
     </button>
-  </div>
+  </li>
 </template>
 
 <script>
