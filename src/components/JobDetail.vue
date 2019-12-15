@@ -4,9 +4,9 @@
       <h3 class="jobdetails__title">
         {{ job.title }}
       </h3>
-      <p class="jobdetails__number">ID: {{ job.id }}</p>
-      <p class="jobdetails__type">Type: {{ job.userId }}</p>
-      <p class="jobdetails__company">Company: {{ job.body }}</p>
+      <p class="jobdetails__id">Job-ID: {{ job.id }}</p>
+      <p class="jobdetails__userid">User-ID: {{ job.userId }}</p>
+      <p class="jobdetails__description">{{ job.body }}</p>
     </div>
   </div>
 </template>
