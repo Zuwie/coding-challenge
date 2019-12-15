@@ -40,6 +40,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * Gets triggered by emmited event
+     * @param {Number} id - The id value
+     */
     setActiveJob(id) {
       this.activeJob = id;
     }

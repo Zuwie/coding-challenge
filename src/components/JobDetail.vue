@@ -28,6 +28,10 @@ export default {
     };
   },
   computed: {
+    /**
+     * Show only the selected item
+     * @returns {Object}
+     */
     jobDetails() {
       return this.jobs[this.activeJob];
     }

@@ -47,6 +47,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * emmit selected id to parent so sibling component can display it
+     * @param {number} id - The id value
+     */
     setActiveJob(id) {
       this.$emit("setActiveJob", id);
     }
