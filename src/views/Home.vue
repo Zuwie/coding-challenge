@@ -31,10 +31,12 @@ import axios from "axios";
 
 export default {
   name: "home",
+
   components: {
     JobItem: JobItem,
     JobDetail: JobDetail
   },
+
   data() {
     return {
       jobs: null,
@@ -42,9 +44,11 @@ export default {
       loading: true
     };
   },
+
   mounted() {
     this.getJobs();
   },
+
   methods: {
     /**
      * Gets triggered by emmited event

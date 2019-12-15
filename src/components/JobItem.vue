@@ -16,6 +16,7 @@
 <script>
 export default {
   name: "JobItem",
+
   props: {
     job: {
       type: Object,
@@ -41,6 +42,7 @@ export default {
       }
     }
   },
+
   methods: {
     /**
      * emmit selected id to parent so sibling component can display it
