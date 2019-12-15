@@ -2,13 +2,27 @@
   <div>
     <h1 class="page-title">Job Page</h1>
 
+    <form class="filter-form" v-on:submit.prevent>
+      <div class="filter-form__group">
+        <label for="filterId" class="filter-form__label"
+          >Search for User-ID:</label
+        >
+        <input
+          type="text"
+          id="filterId"
+          class="filter-form__input"
+          v-model="filterTerm"
+        />
+      </div>
+    </form>
+
     <div class="columns ruler-between">
       <section class="section-overview">
         <h2 class="section-title">Job Overview</h2>
         <p v-if="loading">Loading...</p>
         <ul class="job-list" v-else>
           <job-item
-            v-for="job in jobs"
+            v-for="job in filteredResults"
             :key="job.id"
             :job="job"
             :class="job.id === activeJob ? 'active-item' : ''"
@@ -41,7 +55,8 @@ export default {
     return {
       jobs: null,
       activeJob: null,
-      loading: true
+      loading: true,
+      filterTerm: ""
     };
   },
 
@@ -69,6 +84,22 @@ export default {
           console.log(error);
         })
         .finally(() => (this.loading = false));
+    }
+  },
+
+  computed: {
+    filteredResults() {
+      const search = this.filterTerm.toLowerCase().trim();
+
+      if (!search) return this.jobs;
+
+      return this.jobs.filter(
+        obj =>
+          obj.userId
+            .toString()
+            .toLowerCase()
+            .indexOf(search) > -1
+      );
     }
   }
 };
@@ -105,15 +136,25 @@ export default {
   }
 }
 
-.page-title {
-  text-align: center;
-  text-transform: uppercase;
-  margin-bottom: 3em;
-}
+.filter-form {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 40px;
 
-.section-title {
-  text-align: center;
-  text-transform: uppercase;
-  margin-bottom: 2em;
+  &__group {
+    min-width: 280px;
+  }
+  &__label {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    height: 2em;
+    border: 1px solid #eee;
+    border-radius: 4px;
+  }
 }
 </style>
