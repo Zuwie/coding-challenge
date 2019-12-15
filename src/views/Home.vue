@@ -1,29 +1,31 @@
 <template>
   <div>
-    <h1>Job Page</h1>
-    <main class="content-container columns">
-      <section>
-        <h2>Job Overview</h2>
+    <h1 class="page-title">Job Page</h1>
+    <div class="columns ruler-between">
+      <section class="section-overview">
+        <h2 class="section-title">Job Overview</h2>
         <ul class="job-list">
           <job-item
             v-for="job in jobs"
             :key="job.id"
             :job="job"
+            :class="job.id === activeJob ? 'active-item' : ''"
             @setActiveJob="setActiveJob($event)"
           />
         </ul>
       </section>
-      <section>
+      <section class="section-details">
+        <h2 class="section-title">Details:</h2>
         <job-detail :activeJob="activeJob" v-if="activeJob !== null" />
       </section>
-    </main>
+    </div>
   </div>
 </template>
 
 <script>
-import mock from "../api/mock";
-import JobItem from "../components/JobItem";
-import JobDetail from "../components/JobDetail";
+import mock from "@/api/mock";
+import JobItem from "@/components/JobItem";
+import JobDetail from "@/components/JobDetail";
 
 export default {
   name: "home",
@@ -46,7 +48,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.content-container {
+.columns {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+
+    > * {
+      width: calc(50% - 20px);
+      padding: 20px;
+    }
+  }
+}
+
+.ruler-between {
   position: relative;
   &::after {
     @media screen and (min-width: 1024px) {
@@ -62,19 +76,15 @@ export default {
   }
 }
 
-.columns {
-  @media screen and (min-width: 1024px) {
-    display: flex;
-    justify-content: space-between;
-
-    > * {
-      width: calc(50% - 20px);
-    }
-  }
+.page-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 3em;
 }
 
-.job-list {
-  padding: 0;
-  margin: 0;
+.section-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2em;
 }
 </style>
