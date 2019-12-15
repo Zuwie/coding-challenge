@@ -9,9 +9,9 @@ const jobs = [
   },
   {
     id: 1,
-    title: "Pre Sales Manager_Prescreen",
+    title: "Pre Sales Manager",
     type: "Part Time",
-    company: "Prescreen",
+    company: "Xing",
     description:
       "Aliquam molestias nam non, quae qui recusandae voluptatum? Aliquid cumque dolores et expedita, magni vitae voluptatibus. Delectus libero molestiae quo temporibus! Adipisci amet animi aut beatae deleniti dicta dolorum ducimus enim facilis impedit maiores maxime necessitatibus nesciunt nobis odit officia provident quas quasi quod, quos ratione repudiandae saepe veritatis? Consectetur consequatur modi necessitatibus nemo porro quia ratione sequi. Architecto ex, illo. A atque deserunt nihil possimus rem? Architecto aspernatur cum doloribus earum nam quaerat, quas ut voluptatibus."
   },
@@ -19,7 +19,7 @@ const jobs = [
     id: 2,
     title: "Performance Marketing Manager",
     type: "Internship",
-    company: "Prescreen",
+    company: "Kununu",
     description:
       "Dolore ea fuga hic laboriosam repellendus rerum tempora vitae! Alias perferendis quae recusandae! Accusantium aperiam aut earum provident recusandae! A architecto aspernatur, delectus deleniti dolore, ea error et eveniet excepturi, facere fugit in iste iusto natus nobis quis ratione reprehenderit sapiente sunt velit? Blanditiis, cum dolor incidunt ipsam libero placeat quo. A ab, ad aliquam animi consequuntur, cupiditate error id impedit incidunt laboriosam magnam, magni modi nostrum porro quasi rem sequi? Adipisci aliquam beatae culpa, exercitationem libero nulla numquam quam reiciendis rerum. Dicta distinctio dolores exercitationem fuga fugiat hic magnam obcaecati possimus reprehenderit, rerum, saepe sed totam veritatis."
   }
