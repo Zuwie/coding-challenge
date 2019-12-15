@@ -61,6 +61,9 @@ export default {
   },
 
   mounted() {
+    /**
+     * Fill the app with data
+     */
     this.getJobs();
   },
 
@@ -88,6 +91,10 @@ export default {
   },
 
   computed: {
+    /**
+     * Filter over the data
+     * @returns {Object} - only those which match the filter
+     */
     filteredResults() {
       const search = this.filterTerm.toLowerCase().trim();
 

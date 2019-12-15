@@ -30,6 +30,9 @@ export default {
     };
   },
 
+  /**
+   * Show data of selected item
+   */
   mounted() {
     this.getJob(this.activeJob);
   },
@@ -48,6 +51,9 @@ export default {
     }
   },
 
+  /**
+   * Listen to changes and react to them
+   */
   watch: {
     activeJob() {
       this.getJob(this.activeJob);
