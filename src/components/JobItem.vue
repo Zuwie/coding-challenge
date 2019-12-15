@@ -60,6 +60,12 @@ export default {
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0 8px 16px 0;
   border-radius: 5px;
+  transition: transform 0.2s ease;
+  text-align: center;
+
+  &.active-item {
+    background: #aeffdf;
+  }
 
   &__description {
     overflow: hidden;
@@ -69,7 +75,7 @@ export default {
 
 .button {
   cursor: pointer;
-  background: #ffffff;
+  background: transparent;
   box-shadow: none;
   outline: none;
   padding: 11px 20px 12px;
