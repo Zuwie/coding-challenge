@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav" class="inner">
+      <ul class="nav-list">
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/contact">Contact</router-link></li>
+      </ul>
     </div>
-    <main class="content-container">
+    <main class="content-container inner">
       <router-view />
     </main>
   </div>
@@ -32,6 +35,14 @@ ul {
 
 #nav {
   padding: 30px;
+}
+
+.nav-list {
+  display: flex;
+
+  li + li {
+    margin-left: 20px;
+  }
 
   a {
     font-weight: bold;
@@ -41,5 +52,22 @@ ul {
       color: #42b983;
     }
   }
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 3em;
+}
+
+.section-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2em;
 }
 </style>
