@@ -56,10 +56,12 @@ export default {
   @media screen and (min-width: 1024px) {
     display: flex;
     justify-content: space-between;
+  }
 
-    > * {
+  > * {
+    padding: 20px;
+    @media screen and (min-width: 1024px) {
       width: calc(50% - 20px);
-      padding: 20px;
     }
   }
 }
