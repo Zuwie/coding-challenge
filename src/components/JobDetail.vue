@@ -1,14 +1,12 @@
 <template>
   <div>
-    <h2>Detail</h2>
-
     <div class="jobdetails">
-      <h3 class="jobitem__title">
+      <h3 class="jobdetails__title">
         {{ jobDetails.title }}
       </h3>
-      <p class="jobitem__type">Type: {{ jobDetails.type }}</p>
-      <p class="jobitem__company">Company: {{ jobDetails.company }}</p>
-      <p class="jobitem__description">{{ jobDetails.description }}</p>
+      <p class="jobdetails__type">Type: {{ jobDetails.type }}</p>
+      <p class="jobdetails__company">Company: {{ jobDetails.company }}</p>
+      <p class="jobdetails__description">{{ jobDetails.description }}</p>
     </div>
   </div>
 </template>
@@ -37,4 +35,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.jobdetails {
+  /*text-align: left;*/
+}
+</style>
