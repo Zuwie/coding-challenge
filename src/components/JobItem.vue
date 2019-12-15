@@ -3,10 +3,9 @@
     <h3 class="jobitem__title">
       {{ job.title }}
     </h3>
-    <p class="jobitem__type">Type: {{ job.type }}</p>
-    <p class="jobitem__company">Company: {{ job.company }}</p>
+    <p class="jobitem__user">UserID: {{ job.userId }}</p>
     <p class="jobitem__description">
-      {{ job.description | truncate(50) }}
+      {{ job.body | truncate(50) }}
     </p>
     <button class="button" @click="setActiveJob(job.id)">
       More information about this job
@@ -26,19 +25,15 @@ export default {
             type: Number,
             default: null
           },
+          userId: {
+            type: Number,
+            default: null
+          },
           title: {
             type: String,
             default: "Job Title"
           },
-          type: {
-            type: String,
-            default: "Job Type"
-          },
-          company: {
-            type: String,
-            default: "Job Company"
-          },
-          description: {
+          body: {
             type: String,
             default: "Job Description"
           }

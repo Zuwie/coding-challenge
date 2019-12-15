@@ -1,10 +1,12 @@
 <template>
   <div>
     <h1 class="page-title">Job Page</h1>
+
     <div class="columns ruler-between">
       <section class="section-overview">
         <h2 class="section-title">Job Overview</h2>
-        <ul class="job-list">
+        <p v-if="loading">Loading...</p>
+        <ul class="job-list" v-else>
           <job-item
             v-for="job in jobs"
             :key="job.id"
@@ -23,9 +25,9 @@
 </template>
 
 <script>
-import mock from "@/api/mock";
 import JobItem from "@/components/JobItem";
 import JobDetail from "@/components/JobDetail";
+import axios from "axios";
 
 export default {
   name: "home",
@@ -35,9 +37,13 @@ export default {
   },
   data() {
     return {
-      jobs: mock.jobs,
-      activeJob: null
+      jobs: null,
+      activeJob: null,
+      loading: true
     };
+  },
+  mounted() {
+    this.getJobs();
   },
   methods: {
     /**
@@ -46,6 +52,19 @@ export default {
      */
     setActiveJob(id) {
       this.activeJob = id;
+    },
+
+    /**
+     * Fetches data from Placeholder API https://jsonplaceholder.typicode.com/
+     */
+    getJobs() {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/posts`)
+        .then(response => (this.jobs = response.data))
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => (this.loading = false));
     }
   }
 };

@@ -1,39 +1,55 @@
 <template>
   <div>
-    <div class="jobdetails">
+    <div class="jobdetails" v-if="job !== null">
       <h3 class="jobdetails__title">
-        {{ jobDetails.title }}
+        {{ job.title }}
       </h3>
-      <p class="jobdetails__type">Type: {{ jobDetails.type }}</p>
-      <p class="jobdetails__company">Company: {{ jobDetails.company }}</p>
-      <p class="jobdetails__description">{{ jobDetails.description }}</p>
+      <p class="jobdetails__number">ID: {{ job.id }}</p>
+      <p class="jobdetails__type">Type: {{ job.userId }}</p>
+      <p class="jobdetails__company">Company: {{ job.body }}</p>
     </div>
   </div>
 </template>
 
 <script>
-import mock from "../api/mock";
+import axios from "axios";
 
 export default {
   name: "JobDetail",
   props: {
     activeJob: {
       type: Number,
-      default: null
+      default: 1
     }
   },
+
   data() {
     return {
-      jobs: mock.jobs
+      job: null
     };
   },
-  computed: {
-    /**
-     * Show only the selected item
-     * @returns {Object}
-     */
-    jobDetails() {
-      return this.jobs[this.activeJob];
+
+  mounted() {
+    this.getJob(this.activeJob);
+  },
+
+  /**
+   * Fetches data from Placeholder API https://jsonplaceholder.typicode.com/
+   */
+  methods: {
+    getJob(id) {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then(response => (this.job = response.data))
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
+
+  watch: {
+    activeJob() {
+      this.getJob(this.activeJob);
     }
   }
 };
